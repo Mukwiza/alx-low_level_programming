@@ -1,27 +1,34 @@
 #include "main.h"
 
 /**
- * *_strncat - function that concatinate  strings
- * @n: number of bytes src string
- * @dest: pointer
- * @src: pointer
- * Return: pointer to dest string
+ *_strncpy - copy src into dest.
+ *@dest: first string.
+ *@src: second string.
+ *@n: the number of bytes to use from src.
+ *Return: string.
  */
 
-char *_strncat(char *dest, char *src, int n)
+char *_strncpy(char *dest, char *src, int n)
 {
-	int i, length;
+	int i = 0, k = 0;
 
-	for (length = 0 ; dest[length] != '\0' ; length++)
+	while (n > k)
 	{
+		if (src[k] == '\0')
+		{
+			for (; k < n; k++)
+			{
+				dest[i] = '\0';
+				i++;
+			}
+		}
+		else
+		{
+			dest[i] = src[k];
+			k++;
+			i++;
+		}
 	}
 
-	for (i = 0 ; i < n ; i++)
-	{
-		dest[length + i] = src[i];
-	}
-
-	dest[length + n + 1] = '\0';
 	return (dest);
-
 }
